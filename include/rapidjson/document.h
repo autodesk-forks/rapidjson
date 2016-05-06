@@ -2145,7 +2145,7 @@ public:
     template <unsigned parseFlags, typename SourceEncoding, typename InputStream>
     GenericDocument& ParseStream(InputStream& is) {
         GenericReader<SourceEncoding, Encoding, StackAllocator> reader(
-            stack_.HasAllocator() ? &stack_.GetAllocator() : 0);
+            stack_.HasAllocator() ? stack_.GetAllocator() : 0);
         ClearStackOnExit scope(*this);
         parseResult_ = reader.template Parse<parseFlags>(is, *this);
         if (parseResult_) {

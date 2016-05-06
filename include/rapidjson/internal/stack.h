@@ -167,9 +167,9 @@ public:
         return allocator_ != 0;
     }
 
-    Allocator& GetAllocator() {
+    Allocator* GetAllocator() {
         RAPIDJSON_ASSERT(allocator_);
-        return *allocator_;
+        return allocator_;
     }
 
     bool Empty() const { return stackTop_ == stack_; }
